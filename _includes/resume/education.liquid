@@ -1,0 +1,26 @@
+{% assign education = section[1] | sort: 'startDate' | reverse %}
+<div>
+	<table>
+		<tr>
+			<td>
+				<b>{{ education[0].institution }}</b>
+				<span style="float:right">
+					{{ education[0].startDate | date: "%B %Y"}} to {{ education[0].endDate | date: "%B %Y" }}
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{{ education[0].studyType }} in {{ education[0].majorArea }}
+				{% if (education[0].minorArea) and (education[0].minorArea != "") %}
+				with a minor in {{ education[0].minorArea }}
+				{% endif %}
+			</td>
+		</tr>
+		{% if (education[0].score) and (education[0].score != "") %}
+		<tr>
+			<td>Cumulative GPA: {{ education[0].score }}</td>
+		</tr>
+		{% endif %}
+	</table>
+</div>

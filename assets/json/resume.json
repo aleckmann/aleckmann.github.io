@@ -1,0 +1,132 @@
+{
+  "basics": {
+    "name": "Alec Eckmann",
+    "label": "Security Engineer",
+    "image": "",
+    "email": "alec@aleckmann.com",
+    "phone": "",
+    "website": "https://aleckmann.github.io",
+    "summary": "",
+    "location": {},
+    "profiles": []
+  },
+  "education": [
+    {
+      "institution": "New York University",
+      "url": "https://institution.com/",
+      "majorArea": "Computer Science",
+      "minorArea": "",
+      "studyType": "Bachelor of Arts",
+      "startDate": "2013-08-01",
+      "endDate": "2017-08-01",
+      "score": "",
+      "courses": []
+    }
+  ],
+  "work": [
+    {
+      "name": "Cartwheel IT",
+      "city": "New York City",
+      "state": "New York",
+      "position": "Security Analyst",
+      "url": "https://www.linkedin.com/company/cartwheel/",
+      "startDate": "2018-02-01",
+      "endDate": "2021-04-01",
+      "summary": "Description…",
+      "highlights": ["Started the company"]
+    },
+    {
+      "name": "Azoff MSG Entertainment, LLC",
+      "city": "Los Angeles",
+      "state": "California",
+      "position": "Information Security Specialist",
+      "url": "https://www.linkedin.com/company/azoff-msg-entertainment-llc/",
+      "startDate": "2021-04-01",
+      "summary": "Description...",
+      "highlights": [
+        "did some cool stuff",
+        "did ANOTHER cool thing",
+        "absolutely killed it"
+      ]
+    }
+  ],
+  "volunteer_example": [
+    {
+      "organization": "Organization",
+      "position": "Volunteer",
+      "url": "https://organization.com/",
+      "startDate": "2012-01-01",
+      "endDate": "2013-01-01",
+      "summary": "Description…",
+      "highlights": ["Awarded 'Volunteer of the Month'"]
+    }
+  ],
+  "awards_example": [
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    }
+  ],
+  "certificates_example": [
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.com"
+    }
+  ],
+  "publications_example": [
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "https://publication.com",
+      "summary": "Description…"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Italian",
+      "fluency": "Conversational"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": ["Ferrets", "Unicorns"]
+    }
+  ],
+  "references": [
+    {
+      "name": "Jane Doe",
+      "reference": "Reference…"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description...",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://project.com/"
+    }
+  ]
+}

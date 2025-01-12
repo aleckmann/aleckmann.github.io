@@ -1,0 +1,24 @@
+<ul>
+	{% assign work = section[1] | sort: 'startDate' | reverse %}
+	{% for content in work %}
+	<table>
+		<h3>
+			<b>{{ content.name }}</b>
+			{% if (content.city) and (content.city != "") and (content.state) and (content.state != "") %}
+			- {{ content.city }}, {{ content.state }}
+			{% endif %}
+		</h3>
+		<h4>{{ content.position }}
+			<span style="float:right">
+				{{ content.startDate | date: "%B %Y" }} - {{ content.endDate | date: "%B %Y" | default: "Present" }}
+			</span>
+		</h4>
+		<p>{{ content.summary }}</p>
+		<ul>
+			{% for highlight in content.highlights %}
+			<li>{{ highlight }}</li>
+			{% endfor %}
+		</ul>
+	</table>
+	{% endfor %}
+</ul>
