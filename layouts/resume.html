@@ -1,0 +1,259 @@
+{{ define "main" }}
+  <div class="resume">
+  {{ with resources.Get .Params.resumeTemplate }}
+    {{ with .Content | transform.Unmarshal }}
+
+      {{/* Save section roots for EZ Referencing */}}
+      {{ $contentroot := .content }}
+      {{ $layoutroot := .layout }}
+
+      {{/* Header */}}
+      <div class="mb-10">
+        <div class="flex justify-center">
+          <span style="font-size:2.25rem;"><b>{{ $contentroot.basics.name }} </b>
+          {{ with $contentroot.basics.headline }}
+            | {{ . }}
+          {{ end }}
+          </span>
+        </div>
+        {{ with $contentroot.location }}
+        <div class="flex justify-center italic">
+          {{ .address }} - {{ .city }} - {{ .region }}, {{ .country }}, {{ .postalCode }}
+        </div>
+        {{ end }}
+        {{ with and $contentroot.basics.phone $contentroot.basics.email}}
+        <div class="text-center">
+          {{ partial "icon.html" "mobile" }}{{ $contentroot.basics.phone }}
+            •
+          {{ partial "icon.html" "email" }}{{ $contentroot.basics.email }}
+        </div>
+        {{ end }}
+
+        <div class="text-center">
+        •
+        {{ with $contentroot.basics.url }}
+          {{ partial "icon.html" "link" }}{{ . }}
+        {{ end }}
+        {{ if and $contentroot.basics.url $contentroot.profiles }}
+          •
+        {{ end }}
+        {{ with $contentroot.profiles }}
+          {{ range . }}
+            {{ partial "icon.html" .network }}{{ .url }} •
+          {{ end }}
+        {{ end }}
+        </div>
+      </div>
+
+        
+      {{/* Body */}}
+      {{ range .layout.sections.order }}
+        {{ if index $contentroot . }}
+          <div>
+            <div class="text-2xl font-bold">{{ index $layoutroot.sections.aliases . }}</div>
+            <hr>
+
+            {{/* Work */}}
+            {{ if eq . "work" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-between font-bold text-xl">{{ .name }}<span class="text-right">{{ .url }}</span></div>
+                <div class="flex justify-between italic">{{ .position }}
+                  <span>
+                    {{ time.Format "Jan 2006" (time.AsTime .startDate) }} - 
+                    {{ with .endDate }}
+                      {{ time.Format "Jan 2006" (time.AsTime .) }}
+                    {{ else }}
+                      Current
+                    {{ end }}
+                  </span>
+                </div>
+                <div style="padding-left:1rem">
+                  <ul style="list-style-position: outside; list-style-type:circle;">
+                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
+                    {{ with . }}
+                      <li>{{ . }}</li>
+                    {{ end }}
+                  {{ end }}
+                  </ul>
+                </div>
+                {{ with .keywords }}
+                  <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
+                {{ end }}
+                </br>
+              {{ end }}
+              </div>
+            {{ end }}
+
+            {{/* Education */}}
+            {{ if eq . "education" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-between font-bold text-xl">{{ .institution }}<span class="text-right">{{ .url }}</span></div>
+                <div class="flex justify-between italic">
+                  {{ .degree }}, {{ .area }}{{ with .score }}, Score: {{ . }}{{ end }}
+                  <span>
+                    {{ time.Format "Jan 2006" (time.AsTime .startDate) }} - 
+                    {{ with .endDate }}
+                      {{ time.Format "Jan 2006" (time.AsTime .) }}
+                    {{ else }}
+                      Current
+                    {{ end }}
+                  </span>
+                </div>  
+                <div style="padding-left:1rem">
+                  <ul style="list-style-position: outside; list-style-type:circle;">
+                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
+                    {{ with . }}
+                      <li>{{ . }}</li>
+                    {{ end }}
+                  {{ end }}
+                  </ul>
+                </div>
+                {{ with .courses }}
+                  <div><span class="font-bold">Courses: </span>{{ delimit . ", " }}</div>
+                {{ end }}
+                </br>
+              {{ end }}
+              </div>
+            {{ end }} 
+            
+            {{/* Skills */}}
+            {{ if eq . "skills" }}
+              <div>
+                {{ range index $contentroot . }}
+                  <div class="flex justify-between">
+                    <div class="flex content-start"><span><b>{{ .name }}:</b> {{ .level }}</span></div>
+                    {{ with .keywords }}
+                      <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
+                    {{ end }}
+                  </div> 
+                {{ end }}
+              </br>
+              </div>
+            {{ end }}
+
+            {{/* Languages */}}
+            {{ if eq . "languages" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-between">
+                  <div class="flex content-start"><span><b>{{ .language }}:</b> {{ .fluency }}</span></div>
+                  {{ with .keywords }}
+                    <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
+                  {{ end }}
+                </div> 
+              {{ end }}
+              </br>  
+              </div>
+            {{ end }}
+
+            {{/* Awards */}}
+            {{ if eq . "awards" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-start font-bold text-xl">{{ .title }}</div>
+                <div class="flex justify-between italic">
+                  <span class="flex content-start">{{ .awarder }}</span>
+                  <span class="flex content-end">{{ .date }}</span>
+                </div> 
+                <div>{{ .summary }}</div>
+              {{ end }}
+              </br>  
+              </div>
+            {{ end }}
+
+            {{/* Certificates */}}
+            {{ if eq . "certificates" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-between font-bold text-xl">
+                  <div class="flex content-start">{{ .name }}</div>
+                  <div class="flex content-end">{{ .url }}</div>
+                </div>
+                <div class="flex justify-between italic">
+                  <span class="flex content-start">{{ .issuer }}</span>
+                  <span class="flex content-end">{{ .date }}</span>
+                </div> 
+                <div>{{ .summary }}</div>
+              {{ end }}
+              </br>  
+              </div>
+            {{ end }}
+
+            {{/* Projects */}}
+            {{ if eq . "projects" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-between font-bold text-xl">
+                  <div class="flex content-start">{{ .name }}</div>
+                  <div class="flex content-end">{{ .url }}</div>
+                </div>
+                <div class="flex justify-between italic">
+                  <span class="flex content-start">{{ .description }}</span>
+                  <span class="flex content-end">{{ .startDate }} - {{ or .endDate "Current" }}</span>
+                </div> 
+                <div style="padding-left:1rem">
+                  <ul style="list-style-position: outside; list-style-type:circle;">
+                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
+                    {{ with . }}
+                      <li>{{ . }}</li>
+                    {{ end }}
+                  {{ end }}
+                  </ul>
+                </div>
+                {{ with .keywords }}
+                  <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
+                {{ end }}
+              {{ end }}
+              </br>  
+              </div>
+            {{ end }}
+
+            {{/* Volunteer */}}
+            {{ if eq . "volunteer" }}
+              <div>
+              {{ range index $contentroot . }}
+                <div class="flex justify-between font-bold text-xl">
+                  <div class="flex content-start">{{ .organization }}</div>
+                  <div class="flex content-end">{{ .url }}</div>
+                </div>
+                <div class="flex justify-between italic">
+                  <span class="flex content-start">{{ .position }}</span>
+                  <span class="flex content-end">{{ .startDate }} - {{ or .endDate "Current" }}</span>
+                </div>
+                <div style="padding-left:1rem">
+                  <ul style="list-style-position: outside; list-style-type:circle;">
+                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
+                    {{ with . }}
+                      <li>{{ . }}</li>
+                    {{ end }}
+                  {{ end }}
+                  </ul>
+                </div>
+                {{ with .keywords }}
+                  <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
+                {{ end }}
+              {{ end }}
+              </br>  
+              </div>
+            {{ end }}
+
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Download */}}
+    <div class="text-center">
+      <a
+        class="inline-block !rounded-md bg-primary-600 px-4 py-1 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+        href='/resume/artifacts/{{ path.Base (replace .Params.resumeTemplate "yml" "pdf") }}'
+        role="button"
+        download>
+        Download
+      </a>
+    </div>
+  </div>
+{{ end }}
