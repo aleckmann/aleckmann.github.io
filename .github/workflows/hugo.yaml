@@ -40,7 +40,10 @@ jobs:
         with:
             image: yamlresume/yamlresume:latest
             options: -v ${{ github.workspace }}/yamlresume:/home/yamlresume build resume.yml
-
+            run: |
+                composer install
+                npm install
+                npm run production
       - name: File system actions
         run: |
           ls "${GITHUB_WORKSPACE}"
