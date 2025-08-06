@@ -39,17 +39,15 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
             image: yamlresume/yamlresume:latest
-            options: -v ${{ github.workspace }}/yamlresume:/home/yamlresume
-            run: |
-                composer install
-                npm install
-                npm run production
+            options: -v ${{ github.workspace }}/yamlresume:/home/yamlresume build resume.yml
+
       - name: File system actions
         run: |
           ls "${GITHUB_WORKSPACE}"
-          
+
   # Build job
   build:
+    needs: compile
     runs-on: ubuntu-latest
     env:
       DART_SASS_VERSION: 1.89.2
