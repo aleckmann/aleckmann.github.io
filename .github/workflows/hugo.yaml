@@ -38,7 +38,7 @@ jobs:
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: yamlresume/yamlresume:latest
+            image: yamlresume/yamlresume-base:latest
             options: -v ${{ github.workspace }}/yamlresume:/home/yamlresume build resume.yml
             run: |
                 composer install
