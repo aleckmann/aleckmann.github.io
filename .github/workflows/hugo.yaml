@@ -44,6 +44,7 @@ jobs:
             image: yamlresume/yamlresume-base:latest
             options: --rm -v ${{ github.workspace }}/yamlresume:/home/yamlresume yamlresume/yamlresume build resume.yml
             run: |
+              echo hi
                 
 
       - name: File system actions
