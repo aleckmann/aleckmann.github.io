@@ -36,16 +36,15 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+        
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PAT }}
-            image: yamlresume/yamlresume-base:latest
-            options: --rm -v ${{ github.workspace }}/yamlresume:/home/yamlresume yamlresume/yamlresume build resume.yml
-            run: |
-              echo hi
-                
+            image: yamlresume/yamlresume:latest
+            shell: bash
+            options: --rm -v ${{ github.workspace }}/yamlresume:/home/yamlresume yamlresume/yamlresume build resume.yml            
 
       - name: File system actions
         run: |
