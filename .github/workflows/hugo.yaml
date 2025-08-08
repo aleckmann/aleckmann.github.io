@@ -43,7 +43,7 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PAT }}
             image: yamlresume/yamlresume:latest
-            shell: bash
+            shell: /usr/bin/sh
             options: --rm -v ${{ github.workspace }}/yamlresume:/home/yamlresume yamlresume/yamlresume build resume.yml            
 
       - name: File system actions
