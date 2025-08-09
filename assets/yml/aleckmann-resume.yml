@@ -2,11 +2,9 @@
 ---
 content:
   basics: 
-    name: Andonaldo Dufresne
-    headline: Headed for the Pacific
-    phone: "(214) 555-9876"
-    email: henlo@ppresume.com
-    url: https://ppresume.com/gallery
+    name: Alec Eckmann
+    email: alec@aleckmann.com
+    url: https://aleckmann.com/
     # All summary fields supports a limited rich text capabilities in markdown
     # syntax:
     #
@@ -19,12 +17,12 @@ content:
       - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
       - Experiened in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
       - Team player, with detail-oriented mindset and a keen eye for design and user experiences
-  location:
-    address: 123 Main Street
-    city: Sacramento
-    region: California
-    country: United States
-    postalCode: "95814"
+  #location:
+  #  address: 123 Main Street
+  #  city: Sacramento
+  #  region: California
+  #  country: United States
+  #  postalCode: "95814"
   profiles:
     - network: Line
       url: https://line.com/PPResumeX
