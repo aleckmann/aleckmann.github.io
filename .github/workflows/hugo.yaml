@@ -50,17 +50,6 @@ jobs:
       - name: LS Mnt
         run: ls "${{ github.workspace }}/mnt"
 
-  organize:
-    name: Prep Build
-    needs: compile
-    runs-on: ubuntu-latest
-    steps:
-      - name: LS root
-        run: ls "${{ github.workspace }}"
-
-      - name: LS Mnt
-        run: ls "${{ github.workspace }}/mnt"
-
       - name: Pull PDF to Artifacts Folder
         run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume/artifacts"
 
@@ -70,7 +59,7 @@ jobs:
   # Build job
   build:
     name: Build Site
-    needs: organize
+    needs: compile
     runs-on: ubuntu-latest
     env:
       DART_SASS_VERSION: 1.89.2
