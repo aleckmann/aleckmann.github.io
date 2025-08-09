@@ -12,7 +12,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -38,8 +38,6 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Run image
-        permissions:
-          contents: write
         run: docker run -v ${{ github.workspace }}/yamlresume:/home/yamlresume yamlresume/yamlresume build resume.yml            
 
       - name: File system actions
