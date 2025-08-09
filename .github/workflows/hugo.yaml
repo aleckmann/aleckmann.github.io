@@ -44,17 +44,14 @@ jobs:
       - name: Run image
         run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build resume.yml
 
-      - name: LS root
-        run: ls "${{ github.workspace }}"
-
       - name: LS Mnt
-        run: ls "${{ github.workspace }}/mnt"
+        run: ls "${{ github.workspace }}/assets"
 
       - name: Pull PDF to Artifacts Folder
-        run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume"
+        run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/assets/pdf"
 
       - name: LS Static
-        run: ls "${{ github.workspace }}/content/resume"
+        run: ls "${{ github.workspace }}/assets/pdf"
 
   # Build job
   build:
