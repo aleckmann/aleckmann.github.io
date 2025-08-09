@@ -46,7 +46,10 @@ jobs:
 
       - name: LS root
         run: ls "${{ github.workspace }}"
-        
+
+      - name: LS Mnt
+        run: ls "${{ github.workspace }}/mnt"
+
   organize:
     name: Prep Build
     needs: compile
