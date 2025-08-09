@@ -21,11 +21,17 @@
           {{ .address }} - {{ .city }} - {{ .region }}, {{ .country }}, {{ .postalCode }}
         </div>
         {{ end }}
-        {{ with and $contentroot.basics.phone $contentroot.basics.email}}
+        {{ with or $contentroot.basics.phone $contentroot.basics.email}}
         <div class="text-center">
-          {{ partial "icon.html" "mobile" }}{{ $contentroot.basics.phone }}
+          {{ with $contentroot.basics.phone }}
+            {{ partial "icon.html" "mobile" }}{{ . }}
+          {{ end }}
+          {{ with and $contentroot.basics.phone $contentroot.basics.email}}
             •
-          {{ partial "icon.html" "email" }}{{ $contentroot.basics.email }}
+          {{ end }}
+          {{ with $contentroot.basics.email }}
+            {{ partial "icon.html" "email" }}{{ . }}
+          {{ end }}
         </div>
         {{ end }}
 
