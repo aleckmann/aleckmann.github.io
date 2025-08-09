@@ -30,16 +30,12 @@
         {{ end }}
 
         <div class="text-center">
-        •
         {{ with $contentroot.basics.url }}
           {{ partial "icon.html" "link" }}{{ . }}
         {{ end }}
-        {{ if and $contentroot.basics.url $contentroot.profiles }}
-          •
-        {{ end }}
         {{ with $contentroot.profiles }}
           {{ range . }}
-            {{ partial "icon.html" .network }}{{ .url }} •
+             • {{ partial "icon.html" .network }}{{ .url }}
           {{ end }}
         {{ end }}
         </div>
