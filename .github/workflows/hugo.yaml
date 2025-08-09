@@ -45,7 +45,7 @@ jobs:
         run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build resume.yml
 
       - name: LS Mnt
-        run: ls "${{ github.workspace }}/assets"
+        run: ls "/home/"
 
       - name: Pull PDF to Artifacts Folder
         run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/assets/pdf"
