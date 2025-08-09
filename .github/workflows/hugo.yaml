@@ -51,10 +51,10 @@ jobs:
         run: ls "${{ github.workspace }}/mnt"
 
       - name: Pull PDF to Artifacts Folder
-        run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/static"
+        run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume"
 
       - name: LS Static
-        run: ls "${{ github.workspace }}/static"
+        run: ls "${{ github.workspace }}/content/resume"
 
   # Build job
   build:
