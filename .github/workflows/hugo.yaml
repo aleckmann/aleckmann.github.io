@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Stage Resume File
-        run: cp "${{ github.workspace }}/assets/yml/resume.yml" "${{ github.workspace }}/mnt"
+        run: cp "${{ github.workspace }}/assets/yml/resume.yml" "${{ github.workspace }}/mnt/resume.yml"
         
       - name: Build Resume w Docker Image
         run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build resume.yml
