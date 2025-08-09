@@ -37,11 +37,14 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
 
-      - name: Build Resume w Docker Image
+      - name: Stage Resume File
+        run: cp "${{ github.workspace }}/assets/yml/resume.yml" "${{ github.workspace }}/mnt"
+        
+      - name: Run image
         run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build resume.yml
 
       - name: Pull PDF to Artifacts Folder
-        run: mv ${{ github.workspace }}/mnt/resume.pdf ${{ github.workspace }}/content/resume/artifacts
+        run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume/artifacts"
 
   # Build job
   build:
