@@ -34,7 +34,8 @@ jobs:
     name: Build Resume
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Stage Resume File
