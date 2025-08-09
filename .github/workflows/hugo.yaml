@@ -50,6 +50,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: LS Mnt
+        run: ls "${{ github.workspace }}/mnt"
+
+      - name: LS root
+        run: ls "${{ github.workspace }}"
+
       - name: Pull PDF to Artifacts Folder
         run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume/artifacts"
 
