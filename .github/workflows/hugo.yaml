@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Stage Resume File
-        run: mv -f assets/yml/resume.yml mnt/resume.yml
+        run: mv -f -v ./assets/yml/resume.yml ./mnt
         
       - name: Build Resume w Docker Image
         run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build resume.yml
