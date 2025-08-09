@@ -10,6 +10,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  RESUME_NAME: 'aleckmann-resume'
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write
@@ -62,13 +65,13 @@ jobs:
         run: ls ${{ github.workspace }}
 
       - name: Stage Resume File
-        run: cp "${{ github.workspace }}/assets/yml/resume.yml" "${{ github.workspace }}/mnt"
+        run: cp "${{ github.workspace }}/assets/yml/$RESUME_NAME.yml" "${{ github.workspace }}/mnt"
         
       - name: Run image
-        run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build resume.yml
+        run: docker run -u root -v ${{ github.workspace }}/mnt:/home/yamlresume yamlresume/yamlresume build $RESUME_NAME.yml
       
       - name: Pull PDF to Leaf Folder
-        run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume"
+        run: mv "${{ github.workspace }}/mnt/$RESUME_NAME.pdf" "${{ github.workspace }}/content/resume"
 
       - name: Setup Pages
         id: pages
