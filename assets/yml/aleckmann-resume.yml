@@ -24,12 +24,12 @@ content:
   #  country: United States
   #  postalCode: "95814"
   profiles:
-    - network: Line
-      url: https://line.com/PPResumeX
-      username: PPResumeX
-    - network: Twitter
-      url: https://twitter.com/PPResumeX
-      username: PPResumeX
+    - network: github
+      url: https://github.com/aleckmann
+      username: aleckmann
+    - network: linkedin
+      url: https://www.linkedin.com/in/aleckmann/
+      username: aleckmann
   education:
     - institution: University of Southern California
       url: https://www.cs.usc.edu/
