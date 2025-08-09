@@ -47,6 +47,9 @@ jobs:
       - name: Pull PDF to Artifacts Folder
         run: mv "${{ github.workspace }}/mnt/resume.pdf" "${{ github.workspace }}/content/resume/artifacts"
 
+      - name: LS Artifacts
+        run: ls "${{ github.workspace }}/content/resume/artifacts"
+
   # Build job
   build:
     name: Build Site
