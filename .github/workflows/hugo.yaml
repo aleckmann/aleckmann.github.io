@@ -33,7 +33,6 @@ jobs:
   # Build job
   build:
     name: Build Site
-    needs: compile
     runs-on: ubuntu-latest
     env:
       DART_SASS_VERSION: 1.89.2
