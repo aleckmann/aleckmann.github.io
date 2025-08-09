@@ -1,6 +1,6 @@
 ---
 layout: resume
-resumeTemplate: 'yml/exampleresume.yml'
+resumeTemplate: 'yml/resume.yml'
 params:
   showDate: false
   showAuthor: false
