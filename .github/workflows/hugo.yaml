@@ -61,9 +61,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Look Around
-        run: ls ${{ github.workspace }}
-
       - name: Stage Resume File
         run: cp "${{ github.workspace }}/assets/yml/$RESUME_NAME.yml" "${{ github.workspace }}/mnt"
         
