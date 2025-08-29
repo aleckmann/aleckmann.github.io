@@ -1,3 +1,7 @@
 .resume {
   font-family: serif
 }
+
+.resume a:hover {
+  text-decoration: underline;
+}
