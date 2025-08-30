@@ -51,15 +51,15 @@
       {{ range .layout.sections.order }}
         {{ if index $contentroot . }}
           <div>
-            <div class="text-2xl font-bold">{{ index $layoutroot.sections.aliases . }}</div>
+            <div class="text-2xl font-extrabold">{{ index $layoutroot.sections.aliases . }}</div>
             <hr>
 
             {{/* Work */}}
             {{ if eq . "work" }}
               <div>
               {{ range index $contentroot . }}
-                <div class="flex justify-between font-bold text-xl">{{ .name }}<span class="text-right">{{ .url }}</span></div>
-                <div class="flex justify-between italic">{{ .position }}
+                <div class="flex justify-between font-semibold text-xl">{{ .name }}<span class="text-right">{{ .url }}</span></div>
+                <div class="flex justify-between italic text-xl">{{ .position }}
                   <span>
                     {{ time.Format "Jan 2006" (time.AsTime .startDate) }} - 
                     {{ with .endDate }}
