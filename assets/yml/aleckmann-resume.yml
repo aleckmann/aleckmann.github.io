@@ -4,25 +4,8 @@ content:
   basics: 
     name: Alec Eckmann
     email: alec@aleckmann.com
-    url: https://aleckmann.com/
-    # All summary fields supports a limited rich text capabilities in markdown
-    # syntax:
-    #
-    # - bold, (e.g, `**bold**`)
-    # - italic, (e.g, `*italic*`)
-    # - ordered list, unordored list and nested sub list
-    # - links (e.g. `[link](https://ppresume.com)`)
-    # summary: |
-    #   - Computer Science major with strong foundation in data structures, algorithms, and software development
-    #   - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
-    #   - Experiened in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
-    #   - Team player, with detail-oriented mindset and a keen eye for design and user experiences
-  # location:
-  #   address: 123 Main Street
-  #   city: Sacramento
-  #   region: California
-  #   country: United States
-  #   postalCode: "95814"
+    url: https://aleckmann.com
+
   profiles:
     - network: GitHub
       url: https://github.com/aleckmann
@@ -33,27 +16,10 @@ content:
   education:
     - institution: New York University
       url:
-      # Valid degree options:
-      #
-      # - 'Middle School'
-      # - 'High School'
-      # - 'Diploma'
-      # - 'Associate'
-      # - 'Bachelor'
-      # - 'Master'
-      # - 'Doctor'
       degree: Bachelor
       area: Computer Science
       score: "3.0"
-      # Should be a valid date string that can be parsed by `new Date(dateStr)`
-      # in JavaScript, eg. '2020-01', '2020-02-03', 'Jul 1, 2023' etc.
-      #
-      # The date part would be removed in the final output as most of the time
-      # people won't really care about the exact date for your working
-      # experience or education background, etc.
-      # ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
-      startDate: 01 Sep 2012
-      # Leave endDate blank to indicate "Present"
+      startDate: 01 Sep 2013
       endDate: 01 May 2017
   work:
     - name: Azoff Music Company
@@ -62,14 +28,19 @@ content:
       endDate:
       position: Information Security Specialist
       summary: |
-        - Led the company's cybersecurity program, prioritizing improvements based on data-driven risk assessments, industry specific attack patterns, and the NIST Cybersecurity Framework. Saved the company significant costs year over year by consistently reducing cyber insurance premium cost through measurable security improvements.
-        - Designed and led a new hire security training program, creating a day-1 foundation on company security best practices. Administered new phishing awareness and security training platforms (KnowBe4, Ninjio) with an emphasis on industry-specific attack patterns. Formalized a company wide vendor management process, ensuring an immediate security review during the selection process and continued oversight through the implementation phase.
-        - Worked cross departmentally on standardizing and updating company policy, including Acceptable Use, Data Protection, and Incident Response policies. Developed and presented Disaster Recovery (DR) strategies for all cloud and on-premises infrastructure, presenting executives with multiple options based on cost and risk appetite.
-        - Served as the primary Intune and Jamf administrator, managing 400+ Windows, MacOS, iOS, and Android endpoints. Built custom CIS Benchmark based configurations to harden all managed devices. Fully automated app provisioning and patch management complete with deferrals, enforced SLAs, and update rings for Windows and MacOS endpoints. Enforced Platform SSO for MacOS and Windows Hello for Business for Windows devices. Configured local biometric tokens as a valid Passkey provider for Entra ID, enabling promptless, phishing resistant MFA-backed logins to all corporate resources. Combined the passkeys, patch management, and endpoint hardening controls into a comprehensive device compliance policy. Achieved a 95% device compliance rate within 1 month of rollout with minimal user disruption.
-        - Strengthened user identity security by deploying passwordless authentication with FIDO2 security keys and Passkeys for critical users. Transitioned all managed corporate applications to SAML/OIDC Single Sign-On (SSO) (including custom claims mapping) with minimal downtime and user disruption. Developed highly customized Conditional Access Policy solutions for all identities, employee or otherwise. Implemented PIM Groups across all Azure Management Groups to maintain least-privileged access. Maintained an average Identity Secure Score of 90%.
-        - Automated key security and operational processes by designing and implementing a form-based geofencing solution backed by PIM and Conditional Access policies. Fully automated the user onboarding process with Azure DevOps, PowerShell, and app-specific API integrations to streamline provisioning and compliance, reducing onboarding turnaround from weeks to hours.
-        - Completely redesigned corporate office network, implementing port-based access controls across several VLANs. Administered a cloud CA and RADIUS Server (EZCA and EZRadius), enabling EntraID-based Wi-Fi authentication for corporate networks. 
-        - Enhanced cloud and hybrid infrastructure security by deploying Azure Arc to all on-prem servers. Built unified monitoring and patching solutions with Azure Monitor and Update Manager. Deployed and managed Defender for Server and Defender for Cloud to unify vulnerability reporting across all IT and Development infrastructure. Integrated Microsoft and third-party services into Azure Sentinel with automated response playbooks to streamline incident response. Led the design and development of a Bicep-based IaC framework to codify a hub-and-spoke topology and migrate legacy infrastructure to the new model.
+        - Led the company's cybersecurity program, prioritizing improvements based on data-driven risk assessments, industry specific attack patterns, and the NIST Cybersecurity Framework. Reduced IT spending while improving overall security posture.
+        - Led the design and development of a Bicep-based IaC framework to codify a hub-and-spoke topology and migrate legacy infrastructure to the new model. Implemented a Role Based Just-in-Time permissions model for all cloud resources.
+        - Enforced biometric sign in requirements and synced local hardware security tokens with Entra ID, enabling passwordless logins from compliant endpoints to all corporate resources. Deployed FIDO2 hardware tokens to a smaller group of highly privileged users. Achieved a 95% device compliance rate within 1 month of policy rollout.
+        - Fully automated the user onboarding process with Azure DevOps, PowerShell, and app-specific API integrations to streamline provisioning, reducing onboarding turnaround time by 80%.
+        - Developed highly customized Conditional Access Policy solutions for all identities, employee or otherwise. Maintained an average Identity Secure Score of 90%.
+        - Transitioned 99% of managed corporate applications to SAML/OIDC Single Sign-On (SSO). 
+        - Served as the primary Intune and Jamf administrator, managing 400+ Windows, MacOS, iOS, and Android endpoints. Enforced hardened device configurations based on CIS Benchmark recommendations. Fully automated app provisioning and patch management across all endpoints. 
+        - Deployed and managed Microsoft's Defender Suite to unify vulnerability reporting across all IT and Development infrastructure. Integrated Microsoft and third-party services into Azure Sentinel with automated playbooks to streamline incident response. 
+        - Designed and led a new hire security training program. Administered new phishing awareness and security training platforms with an emphasis on industry-specific attack patterns.
+        - Redesigned corporate office network, implementing port-based access controls across several VLANs.
+        - Deployed Azure Arc to all on-prem servers. Built unified monitoring and patching solutions with Azure Monitor and Update Manager. 
+        - Worked cross departmentally on standardizing and updating company IT and Security policies. Formalized a company wide vendor management process.
+        - Administered a cloud CA and RADIUS Server (EZCA and EZRadius), enabling Entra ID Wi-Fi authentication for corporate networks. 
 
     - name: Cartwheel IT (now Altourage)
       url:
@@ -96,14 +67,6 @@ content:
       fluency: Limited Working Proficiency
 
   skills:
-    # Valid skill level options:
-    #
-    # - 'Novice'
-    # - 'Beginner'
-    # - 'Intermediate'
-    # - 'Advanced'
-    # - 'Expert'
-    # - 'Master'
     - name: Web Development
       level: Expert
       keywords:
@@ -127,73 +90,36 @@ content:
         - Figma
         - Photoshop
   projects:
-    - name: Geofencing Form
-      description: A web-based educational platform for interactive learning
-      startDate: Sep 2016
-      endDate: Dec 2016
+    - name: Infrastructure as Code Migration
+      description: Bicep-based IaC Framework
       summary: |
-        - Designed to enhance online learning experiences
-        - Facilitates students' engagement and collaboration through interactive features and user-friendly interface
-        - Offers a wide range of courses across various subjects
-        - Aims to improve the way students learn through the power of the web
-      keywords:
-        - Education
-        - Online Learning
-        - HCI
-
-  # awards:
-  #   - title: Dean's List
-  #     awarder: University of Southern California
-  #     date: Oct 2016
-  #     summary: |
-  #       Awarded to students who achieve a high academic standing by maintaining a specified grade point average (GPA) during a semester.
-  # certificates:
-  #   - name: AWS Certified Developer - Associate
-  #     url: https://aws.amazon.com/certification/
-  #     issuer: AWS
-  #     date: Mar 2021
-  # publications:
-  #   - publisher: ACM Transactions on Interactive Intelligent Systems
-  #     url: https://dl.acm.org/journal/tiis
-  #     name: Enhancing Human-Computer Interaction through Augmented Reality
-  #     releaseDate: Dec 2017
-  #     summary: |
-  #       - Explores the potential of augmented reality (AR) in improving interaction between humans and computers
-  #       - Highlights benefits of AR in various areas such as gaming, education, healthcare, and design
-  #       - Discusses challenges and future directions of AR technology in enhancing user experience
-  # references:
-  #   - name: Dr. Amanda Reynolds
-  #     phone: "(555) 123-4567"
-  #     relationship: Computer Science Professor
-  #     email: amanda.reynolds@usc.edu
-  #     summary: |
-  #       Andy Dufresne shows exceptional problem-solving skills and a solid understanding of programming concepts, he would bring immense value to any team or organization he becomes a part of.
-  # interests:
-  #   - name: Sports
-  #     keywords:
-  #       - Soccer
-  #       - Swimming
-  #       - Bicycling
-  #       - Hiking
-  #   - name: Music
-  #     keywords:
-  #       - Piano
-  #       - Guitar
-  # volunteer:
-  #   - organization: USC Computer Science and Engineering Society
-  #     url: https://www.usccsesociety.org/
-  #     position: Tech Mentor
-  #     startDate: Sep 2015
-  #     endDate: Jul 2023
-  #     summary: |
-  #       - Volunteered as a Tech Mentor at USC Computer Science and Engineering Society
-  #       - Provided guidance and assistance to fellow students in their technical projects and coursework
-  #       - Assisted in organizing workshops, coding competitions, and networking events for the society members
-  #       - Contributed to fostering a collaborative and supportive environment within the student community
+        - Developed a system to migrate existing infrastructure to a modern hub-and-spoke topology
+        - Wrote modular and parameterized Bicep templates to deploy different development environments across teams, subsidiaries, and regions 
+        - Created an IaC sandbox environment to automate the testing of resource deployment and network restrictions before updating production workloads
+        - Aligned with Microsoft's Well-Architected framework to centralize network security and monitoring across a multi-spoke, multi-region cloud environment
+    - name: Geofencing Form
+      description: Simple Web Form for Traveling Employees
+      summary: |
+        - Access restricted to employees and requires SSO login; allows submission on behalf of another valid user (useful for assistants)
+        - Takes travel dates and destination region as input, exempts users from Conditional Access Policies specific to their destination region only for duration of their trip
+        - "Risky" regions require approval from manager and security team (risk calculated based on current threat model)
+        - Every step of process is logged through ticketing system, sending email notifications to relevant parties
+    - name: Onboarding Form
+      description: Automated User Provisioning with Advanced Logic and Built-in Approvals
+      summary: |
+        - Access restricted to hiring managers only, requires SSO login
+        - Takes user metadata and access package as input (no sensitive information) and creates relevant accounts, licenses, and group assignments
+        - Unique behavior based on access package, department, employement type, and subsidiary
+        - Built-in approval process for managers, application administrators, and security team depending on requested access
+        - Every step of process is logged through ticketing system, sending email notifications to relevant parties
+    - name: This Resume!
+      description: Created with YAML Resume, Latex, and Hugo
+      summary: |
+        - Defined in a standardized YAML format, generated as a PDF using yamlresume.dev
+        - Rendered online with a custom frontend built with Hugo and hosted using Github Pages
 
 layout:
   locale:
-    # Use `yamlresume languages list` to get the list of supported languages
     language: en
   margins:
     top: 2.5cm
@@ -202,10 +128,8 @@ layout:
     bottom: 2.5cm
   page:
     showPageNumbers: true
-  # Use `yamlresume templates list` to get the list of available templates
   template: moderncv-banking
   typography:
-    # LaTeX engine only supports 10pt, 11pt, and 12pt
     fontSize: 12pt
   sections:
     aliases:
