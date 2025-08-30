@@ -6,6 +6,11 @@ node_modules/
 yamlresume/*
 !yamlresume/*.yml
 !yamlresume/*.pdf
+.cache
+*.tex
+*.aux
+*.out
+*.log
 
 ### Hugo ###
 # Generated files by hugo
