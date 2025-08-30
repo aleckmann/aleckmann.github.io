@@ -12,11 +12,11 @@ content:
     # - italic, (e.g, `*italic*`)
     # - ordered list, unordored list and nested sub list
     # - links (e.g. `[link](https://ppresume.com)`)
-    summary: |
-      - Computer Science major with strong foundation in data structures, algorithms, and software development
-      - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
-      - Experiened in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
-      - Team player, with detail-oriented mindset and a keen eye for design and user experiences
+    # summary: |
+    #   - Computer Science major with strong foundation in data structures, algorithms, and software development
+    #   - Pixel perfect full stack web developer, specialised in creating high-quality, visually appealing websites
+    #   - Experiened in databases (SQL, NoSQL), familiar with server-side technologies (Node.js, Express, etc.)
+    #   - Team player, with detail-oriented mindset and a keen eye for design and user experiences
   # location:
   #   address: 123 Main Street
   #   city: Sacramento
@@ -32,7 +32,7 @@ content:
       username: aleckmann
   education:
     - institution: New York University
-      url: https://www.nyu.edu
+      url:
       # Valid degree options:
       #
       # - 'Middle School'
@@ -56,36 +56,32 @@ content:
       # Leave endDate blank to indicate "Present"
       endDate: 01 May 2017
   work:
-    - name: PPResume
-      url: https://ppresume.com
-      startDate: 01 Dec 2022
+    - name: Azoff Music Company
+      url:
+      startDate: 01 Apr 2021
       endDate:
-      position: Senior Software Engineer
+      position: Information Security Specialist
       summary: |
-        - Developed and implemented efficient and scalable code, ensuring high-quality and maintainable web applications
-        - Collaborated with cross-functional teams to gather project requirements and translate them into technical solutions
-        - Conducted thorough testing and debugging to identify and resolve any issues or bugs in the software
-        - Actively participated in code reviews, providing valuable feedback to improve code quality and adherence to best practices
-        - Mentored and guided junior developers, fostering a collaborative and growth-oriented team environment
-      keywords:
-        - Scalibility
-        - Growth
-        - Quality
-        - Mentorship
-    - name: PPResume
-      url: https://ppresume.com
-      startDate: 01 Sep 2020
-      endDate: 01 Dec 2022
-      position: Software Engineer
+        - Led the company's cybersecurity program, prioritizing improvements based on data-driven risk assessments, industry specific attack patterns, and the NIST Cybersecurity Framework. Saved the company significant costs year over year by consistently reducing cyber insurance premium cost through measurable security improvements.
+        - Designed and led a new hire security training program, creating a day-1 foundation on company security best practices. Administered new phishing awareness and security training platforms (KnowBe4, Ninjio) with an emphasis on industry-specific attack patterns. Formalized a company wide vendor management process, ensuring an immediate security review during the selection process and continued oversight through the implementation phase.
+        - Worked cross departmentally on standardizing and updating company policy, including Acceptable Use, Data Protection, and Incident Response policies. Developed and presented Disaster Recovery (DR) strategies for all cloud and on-premises infrastructure, presenting executives with multiple options based on cost and risk appetite.
+        - Served as the primary Intune and Jamf administrator, managing 400+ Windows, MacOS, iOS, and Android endpoints. Built custom CIS Benchmark based configurations to harden all managed devices. Fully automated app provisioning and patch management complete with deferrals, enforced SLAs, and update rings for Windows and MacOS endpoints. Enforced Platform SSO for MacOS and Windows Hello for Business for Windows devices. Configured local biometric tokens as a valid Passkey provider for Entra ID, enabling promptless, phishing resistant MFA-backed logins to all corporate resources. Combined the passkeys, patch management, and endpoint hardening controls into a comprehensive device compliance policy. Achieved a 95% device compliance rate within 1 month of rollout with minimal user disruption.
+        - Strengthened user identity security by deploying passwordless authentication with FIDO2 security keys and Passkeys for critical users. Transitioned all managed corporate applications to SAML/OIDC Single Sign-On (SSO) (including custom claims mapping) with minimal downtime and user disruption. Developed highly customized Conditional Access Policy solutions for all identities, employee or otherwise. Implemented PIM Groups across all Azure Management Groups to maintain least-privileged access. Maintained an average Identity Secure Score of 90%.
+        - Automated key security and operational processes by designing and implementing a form-based geofencing solution backed by PIM and Conditional Access policies. Fully automated the user onboarding process with Azure DevOps, PowerShell, and app-specific API integrations to streamline provisioning and compliance, reducing onboarding turnaround from weeks to hours.
+        - Completely redesigned corporate office network, implementing port-based access controls across several VLANs. Administered a cloud CA and RADIUS Server (EZCA and EZRadius), enabling EntraID-based Wi-Fi authentication for corporate networks. 
+        - Enhanced cloud and hybrid infrastructure security by deploying Azure Arc to all on-prem servers. Built unified monitoring and patching solutions with Azure Monitor and Update Manager. Deployed and managed Defender for Server and Defender for Cloud to unify vulnerability reporting across all IT and Development infrastructure. Integrated Microsoft and third-party services into Azure Sentinel with automated response playbooks to streamline incident response. Led the design and development of a Bicep-based IaC framework to codify a hub-and-spoke topology and migrate legacy infrastructure to the new model.
+
+    - name: Cartwheel IT (now Altourage)
+      url:
+      startDate: 01 Feb 2018
+      endDate: 01 Apr 2021
+      position: Security Analyst
       summary: |
-        - Created reusable React components to ensure code efficiency and maintainability
-        - Integrated with RESTful APIs to fetch and display dynamic data on the frontend
-        - Implemented client-side routing using React Router for smooth navigation between pages
-        - Actively participated in Agile development methodologies, attending daily stand-up meetings and sprint planning sessions
-      keywords:
-        - RESTful
-        - React
-        - Agile
+        - Sole developer; designed, developed, and deployed an internal automation suite in Python that monitored, audited, and reported on over a thousand endpoints daily.
+        - Worked daily to investigate and remediate security alerts through SentinelOne, Office365 Cloud App Security Portal, and ArcticWolf, Cyberhawk Vulnerability Management platforms
+        - Responsible for the maintenance, management, and continuous improvement of 25+ clients' security programs.
+        - Routinely configured and hardened common SaaS products (Box, Dropbox, Google Drive, Sharepoint), network security products (Cisco Umbrella, Cisco Secure Internet Gateway), and IdPs (Azure AD and GSuite)
+        - Enforced industry standard compliance for HIPAA, FINRA, PCI, GDPR, and CCPA requirements.
   languages:
     # Valid language fluency options:
     #
@@ -96,12 +92,9 @@ content:
     # - 'Native or Bilingual Proficiency'
     - language: English
       fluency: Native or Bilingual Proficiency
-      keywords:
-        - TOEFL 110
-        - IELTS 7.5
-    - language: Chinese
-      fluency: Elementary Proficiency
-      keywords: []
+    - language: Spanish
+      fluency: Limited Working Proficiency
+
   skills:
     # Valid skill level options:
     #
