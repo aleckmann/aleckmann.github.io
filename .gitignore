@@ -6,6 +6,7 @@ node_modules/
 yamlresume/*
 !yamlresume/*.yml
 !yamlresume/*.pdf
+*-resume.pdf
 .cache
 *.tex
 *.aux
