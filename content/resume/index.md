@@ -1,4 +1,5 @@
 ---
+title: 'Resume'
 layout: resume
 resumeTemplate: 'yml/aleckmann-resume.yml'
 #resumeTemplate: 'yml/exampleresume.yml'
