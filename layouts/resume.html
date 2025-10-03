@@ -124,9 +124,9 @@
               <div>
                 {{ range index $contentroot . }}
                   <div class="flex justify-between">
-                    <div class="flex content-start"><span><b>{{ .name }}:</b> {{ .level }}</span></div>
+                    <div class="flex content-start"><span><b>{{ .name }}:</b></span></div>
                     {{ with .keywords }}
-                      <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
+                      <div>{{ delimit . ", " }}</div>
                     {{ end }}
                   </div> 
                 {{ end }}
