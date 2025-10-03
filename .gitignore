@@ -7,6 +7,7 @@ yamlresume/*
 !yamlresume/*.yml
 !yamlresume/*.pdf
 *-resume.pdf
+!content/resume/aleckmann-resume.pdf
 .cache
 *.tex
 *.aux
