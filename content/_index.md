@@ -1,4 +1,4 @@
 ---
-title: "Welcome to Congo! :tada:"
-description: "This is a demo of the Congo theme for Hugo."
+title: "My Homepage"
+description: "This is my homepage. Wow."
 ---
