@@ -18,7 +18,6 @@ content:
       url:
       degree: Bachelor
       area: Computer Science
-      score: "3.0"
       startDate: 01 Sep 2013
       endDate: 01 May 2017
   work:
@@ -65,30 +64,59 @@ content:
       fluency: Native or Bilingual Proficiency
     - language: Spanish
       fluency: Limited Working Proficiency
+    - language: Italian
+      fluency: Elementary Proficiency
 
   skills:
-    - name: Web Development
+    - name: Infrastructure as Code
+      level: Intermediate
+      keywords:
+        - Azure DevOps
+        - Bicep
+        - Terraform
+        - Python
+        - PowerShell
+    - name: Endpoint Administration
       level: Expert
       keywords:
-        - Python
-        - Ruby
-        - CSS
-        - React
-        - JavaScript
-    - name: DevOps
+        - Microsoft Entra ID
+        - Defender for Endpoint
+        - Intune
+        - Jamf
+    - name: IAM Administration
+      level: Expert
+      keywords:
+        - SSO
+        - Conditional Access
+        - PAM
+        - Azure KeyVault
+        - 1Password
+    - name: Network Administration
+      level: Expert
+      keywords:
+        - DHCP
+        - DNS
+        - VLANs
+        - RADIUS
+        - Meraki
+    - name: Cloud Networking
       level: Intermediate
       keywords:
-        - Python
-        - Kubernetes
-        - Docker
-        - Shell
-        - Ansible
-    - name: Design
-      level: Intermediate
+        - Azure VPN
+        - Azure Firewall
+        - Private Endpoints
+        - PLS
+        - AFD
+        - Azure Policy
+    - name: Email Security
+      level: Expert
       keywords:
-        - Sketch
-        - Figma
-        - Photoshop
+        - Sendgrid
+        - SPF
+        - DKIM
+        - DMARC
+        - Defender for Office 365
+
   projects:
     - name: Infrastructure as Code Migration
       description: Bicep-based IaC Framework
@@ -112,11 +140,11 @@ content:
         - Unique behavior based on access package, department, employement type, and subsidiary
         - Built-in approval process for managers, application administrators, and security team depending on requested access
         - Every step of process is logged through ticketing system, sending email notifications to relevant parties
-    - name: This Resume!
-      description: Created with YAML Resume, Latex, and Hugo
-      summary: |
-        - Defined in a standardized YAML format, generated as a PDF using yamlresume.dev
-        - Rendered online with a custom frontend built with Hugo and hosted using Github Pages
+    # - name: This Resume!
+    #   description: Created with YAML Resume, Latex, and Hugo
+    #   summary: |
+    #     - Defined in a standardized YAML format, generated as a PDF using yamlresume.dev
+    #     - Rendered online with a custom frontend built with Hugo and hosted using Github Pages
 
 layout:
   locale:
@@ -141,6 +169,6 @@ layout:
     order:
       - work
       - projects
-      - education
       - skills
+      - education
       - languages
