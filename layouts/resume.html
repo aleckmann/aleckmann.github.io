@@ -41,7 +41,7 @@
         {{ end }}
         {{ with $contentroot.profiles }}
           {{ range . }}
-             &emsp;•&emsp;{{ partial "icon.html" (lower .network) }}<a href="{{ .url }}">@{{ .username }}</a>
+             &emsp;•&emsp;<a href="{{ .url }}">{{ partial "icon.html" (lower .network) }}@{{ .username }}</a>
           {{ end }}
         {{ end }}
         </div>
