@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "resume:pdf": "node scripts/render-resume-pdf.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.61.0"
+  }
+}

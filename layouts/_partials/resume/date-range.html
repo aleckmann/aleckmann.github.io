@@ -1,0 +1,10 @@
+{{- if or .start .end -}}
+  {{- with .start -}}
+    {{- time.Format "Jan 2006" (time.AsTime .) -}}
+  {{- end -}}
+  {{- if and .start .end }} - {{ time.Format "Jan 2006" (time.AsTime .end) }}{{ end -}}
+  {{- if and .start (not .end) }} - Current{{ end -}}
+  {{- if and (not .start) .end -}}
+    {{- time.Format "Jan 2006" (time.AsTime .end) -}}
+  {{- end -}}
+{{- end -}}

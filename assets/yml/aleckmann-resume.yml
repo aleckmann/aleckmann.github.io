@@ -18,12 +18,12 @@ content:
       url:
       degree: Bachelor
       area: Computer Science
-      startDate: 01 Sep 2013
-      endDate: 01 May 2017
+      startDate: 2013-09-01
+      endDate: 2017-05-01
   work:
     - name: Azoff Music Company
       url:
-      startDate: 01 Apr 2021
+      startDate: 2021-04-01
       endDate:
       position: Information Security Specialist
       summary: |
@@ -43,8 +43,8 @@ content:
 
     - name: Cartwheel IT (now Altourage)
       url:
-      startDate: 01 Feb 2018
-      endDate: 01 Apr 2021
+      startDate: 2018-02-01
+      endDate: 2021-04-01
       position: Security Analyst
       summary: |
         - Sole developer; designed, developed, and deployed an internal automation suite in Python that monitored, audited, and reported on over a thousand endpoints daily.

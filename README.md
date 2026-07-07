@@ -24,6 +24,7 @@ This repository contains the source code for my personal website, built using [H
 
 - [Hugo](https://gohugo.io/installation/) (Extended version)
 - Go (for Go modules)
+- Node.js 24 and npm (for resume PDF rendering)
 
 ### Local Development
 
@@ -60,7 +61,7 @@ The generated site will be in the `public/` directory.
 
 ## Resume Generation
 
-The resume on this site is generated from a YAML file using the YAML Resume workflow. Here's how it works:
+The resume on this site uses one YAML data source and one Hugo rendering path. Hugo renders the HTML resume, and CI prints that rendered page to PDF with Playwright/Chromium.
 
 ### Resume Configuration
 
@@ -68,23 +69,44 @@ The resume on this site is generated from a YAML file using the YAML Resume work
 - This YAML file contains structured data about work experience, education, skills, and other resume sections
 - An example template can be found at `assets/yml/exampleresume.yml`
 
+### Local PDF Rendering
+
+Build a local copy of the site with a loopback base URL, then print the resume page to PDF:
+
+```bash
+npm ci
+npx playwright install chromium
+hugo --destination /tmp/aleckmann-resume-render --cleanDestinationDir --baseURL http://127.0.0.1:4173/
+npm run resume:pdf -- --site-dir /tmp/aleckmann-resume-render --output public/resume/aleckmann-resume.pdf --port 4173
+```
+
 ### GitHub Actions Workflow
 
 When changes are pushed to the main branch, the GitHub Actions workflow:
 1. Reads the YAML resume file
-2. Processes it using [YAML Resume](https://github.com/yamlresume/yamlresume), an open-source tool for generating resumes from YAML
-3. Generates a PDF version of the resume
-4. Places the generated PDF in the `resume/` directory
+2. Builds the Hugo site normally for GitHub Pages
+3. Builds a second temporary copy with a local loopback base URL
+4. Prints the temporary `/resume/` page to `public/resume/aleckmann-resume.pdf`
+5. Uploads the static site artifact to GitHub Pages
 
 ### Accessing the Resume
 
 - The final PDF resume is available in the resume section of the website
 - The resume data is also rendered in HTML format at the `/resume` route
-- The YAML source can be used to generate different formats or styles of the resume
+- The checked-in PDF under `content/resume/` is a fallback; CI overwrites the published PDF during deployment
 
-### Attribution
+### Rendering Engine Decision Criteria
 
-This project uses [YAML Resume](https://github.com/yamlresume/yamlresume) for converting the YAML resume data into a downloadable PDF. YAML Resume is an open-source project that provides a powerful and flexible way to maintain your resume as code.
+YAML Resume remains a reasonable option if the goal is to keep PDF output delegated to an existing resume-specific renderer. It is less attractive when the website's HTML resume and downloadable PDF need to match exactly, because it creates a second rendering engine with separate styling constraints.
+
+The current Hugo/Playwright approach optimizes for:
+
+- one rendering engine for HTML and PDF
+- CSS customization without LaTeX or YAML Resume template constraints
+- deterministic local and CI rendering from the same built page
+- one pinned Node dev dependency
+
+The tradeoff is that CI installs Chromium for PDF generation, which is heavier than keeping a static PDF or using an already-packaged resume Docker image.
 
 ## Deployment
 

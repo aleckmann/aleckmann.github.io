@@ -1,12 +1,19 @@
 {{ define "main" }}
+  {{ $resumeResource := resources.Get .Params.resumeTemplate }}
+  {{ if not $resumeResource }}
+    {{ errorf "resume template %q was not found in assets" .Params.resumeTemplate }}
+  {{ end }}
+  {{ $resume := $resumeResource.Content | transform.Unmarshal }}
+  {{ $contentroot := $resume.content }}
+  {{ $layoutroot := $resume.layout }}
+  {{ if not $contentroot }}
+    {{ errorf "resume template %q is missing content" .Params.resumeTemplate }}
+  {{ end }}
+  {{ if not $layoutroot }}
+    {{ errorf "resume template %q is missing layout" .Params.resumeTemplate }}
+  {{ end }}
+
   <div class="resume">
-  {{ with resources.Get .Params.resumeTemplate }}
-    {{ with .Content | transform.Unmarshal }}
-
-      {{/* Save section roots for EZ Referencing */}}
-      {{ $contentroot := .content }}
-      {{ $layoutroot := .layout }}
-
       {{/* Header */}}
       <div class="mb-10">
         <div class="flex justify-center">
@@ -48,9 +55,9 @@
       </div>
 
       {{/* Body */}}
-      {{ range .layout.sections.order }}
+      {{ range $layoutroot.sections.order }}
         {{ if index $contentroot . }}
-          <div>
+          <section class="resume-section resume-section-{{ . }}">
             <div class="text-2xl font-extrabold">{{ index $layoutroot.sections.aliases . }}</div>
             <hr>
 
@@ -58,30 +65,18 @@
             {{ if eq . "work" }}
               <div>
               {{ range index $contentroot . }}
-                <div class="flex justify-between font-semibold text-xl">{{ .name }}<span class="text-right">{{ .url }}</span></div>
+                <article class="resume-entry resume-entry-work">
+                <div class="flex justify-between font-semibold text-xl">{{ .name }}<span class="text-right">{{ with .url }}{{ . }}{{ end }}</span></div>
                 <div class="flex justify-between italic text-xl">{{ .position }}
                   <span>
-                    {{ time.Format "Jan 2006" (time.AsTime .startDate) }} - 
-                    {{ with .endDate }}
-                      {{ time.Format "Jan 2006" (time.AsTime .) }}
-                    {{ else }}
-                      Current
-                    {{ end }}
+                    {{ partial "resume/date-range.html" (dict "start" .startDate "end" .endDate) }}
                   </span>
                 </div>
-                <div style="padding-left:1rem">
-                  <ul style="list-style-position: outside; list-style-type:circle;">
-                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
-                    {{ with . }}
-                      <li>{{ . }}</li>
-                    {{ end }}
-                  {{ end }}
-                  </ul>
-                </div>
+                {{ partial "resume/summary.html" .summary }}
                 {{ with .keywords }}
                   <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
                 {{ end }}
-                </br>
+                </article>
               {{ end }}
               </div>
             {{ end }}
@@ -90,31 +85,19 @@
             {{ if eq . "education" }}
               <div>
               {{ range index $contentroot . }}
-                <div class="flex justify-between font-bold text-xl">{{ .institution }}<span class="text-right">{{ .url }}</span></div>
+                <article class="resume-entry resume-entry-education">
+                <div class="flex justify-between font-bold text-xl">{{ .institution }}<span class="text-right">{{ with .url }}{{ . }}{{ end }}</span></div>
                 <div class="flex justify-between italic">
                   {{ .degree }}, {{ .area }}{{ with .score }}, Score: {{ . }}{{ end }}
                   <span>
-                    {{ time.Format "Jan 2006" (time.AsTime .startDate) }} - 
-                    {{ with .endDate }}
-                      {{ time.Format "Jan 2006" (time.AsTime .) }}
-                    {{ else }}
-                      Current
-                    {{ end }}
+                    {{ partial "resume/date-range.html" (dict "start" .startDate "end" .endDate) }}
                   </span>
                 </div>  
-                <div style="padding-left:1rem">
-                  <ul style="list-style-position: outside; list-style-type:circle;">
-                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
-                    {{ with . }}
-                      <li>{{ . }}</li>
-                    {{ end }}
-                  {{ end }}
-                  </ul>
-                </div>
+                {{ partial "resume/summary.html" .summary }}
                 {{ with .courses }}
                   <div><span class="font-bold">Courses: </span>{{ delimit . ", " }}</div>
                 {{ end }}
-                </br>
+                </article>
               {{ end }}
               </div>
             {{ end }} 
@@ -130,7 +113,6 @@
                     {{ end }}
                   </div> 
                 {{ end }}
-              </br>
               </div>
             {{ end }}
 
@@ -145,7 +127,6 @@
                   {{ end }}
                 </div> 
               {{ end }}
-              </br>  
               </div>
             {{ end }}
 
@@ -160,7 +141,6 @@
                 </div> 
                 <div>{{ .summary }}</div>
               {{ end }}
-              </br>  
               </div>
             {{ end }}
 
@@ -178,7 +158,6 @@
                 </div> 
                 <div>{{ .summary }}</div>
               {{ end }}
-              </br>  
               </div>
             {{ end }}
 
@@ -186,27 +165,20 @@
             {{ if eq . "projects" }}
               <div>
               {{ range index $contentroot . }}
+                <article class="resume-entry resume-entry-projects">
                 <div class="flex justify-between font-bold text-xl">
                   <div class="flex content-start">{{ .name }}</div>
-                  <div class="flex content-end">{{ .url }}</div>
+                  <div class="flex content-end">{{ with .url }}{{ . }}{{ end }}</div>
                 </div>
                 <div class="flex justify-between italic">
                   <span class="flex content-start">{{ .description }}</span>
                 </div> 
-                <div style="padding-left:1rem">
-                  <ul style="list-style-position: outside; list-style-type:circle;">
-                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
-                    {{ with . }}
-                      <li>{{ . }}</li>
-                    {{ end }}
-                  {{ end }}
-                  </ul>
-                </div>
+                {{ partial "resume/summary.html" .summary }}
                 {{ with .keywords }}
                   <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
                 {{ end }}
+                </article>
               {{ end }}
-              </br>  
               </div>
             {{ end }}
 
@@ -214,39 +186,30 @@
             {{ if eq . "volunteer" }}
               <div>
               {{ range index $contentroot . }}
+                <article class="resume-entry resume-entry-volunteer">
                 <div class="flex justify-between font-bold text-xl">
                   <div class="flex content-start">{{ .organization }}</div>
-                  <div class="flex content-end">{{ .url }}</div>
+                  <div class="flex content-end">{{ with .url }}{{ . }}{{ end }}</div>
                 </div>
                 <div class="flex justify-between italic">
                   <span class="flex content-start">{{ .position }}</span>
-                  <span class="flex content-end">{{ .startDate }} - {{ or .endDate "Current" }}</span>
+                  <span class="flex content-end">{{ partial "resume/date-range.html" (dict "start" .startDate "end" .endDate) }}</span>
                 </div>
-                <div style="padding-left:1rem">
-                  <ul style="list-style-position: outside; list-style-type:circle;">
-                  {{ range ((apply (split .summary "- ") "strings.TrimPrefix" "- " ".")) }}
-                    {{ with . }}
-                      <li>{{ . }}</li>
-                    {{ end }}
-                  {{ end }}
-                  </ul>
-                </div>
+                {{ partial "resume/summary.html" .summary }}
                 {{ with .keywords }}
                   <div><span class="font-bold">Keywords: </span>{{ delimit . ", " }}</div>
                 {{ end }}
+                </article>
               {{ end }}
-              </br>  
               </div>
             {{ end }}
 
-          </div>
+          </section>
         {{ end }}
       {{ end }}
-    {{ end }}
-  {{ end }}
 
   {{/* Download */}}
-    <div class="text-center">
+    <div class="resume-download text-center">
       <a
         class="inline-block !rounded-md bg-primary-600 px-4 py-1 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
         href='{{ path.Base (replace .Params.resumeTemplate "yml" "pdf") }}'

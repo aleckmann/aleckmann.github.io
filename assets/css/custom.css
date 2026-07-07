@@ -1,7 +1,148 @@
 .resume {
-  font-family: serif
+  font-family: Georgia, "Times New Roman", Times, serif;
+  max-width: 8.5in;
+  margin: 0 auto;
 }
 
 .resume a:hover {
   text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 1rem;
+}
+
+.resume-entry {
+  margin-bottom: 0.9rem;
+}
+
+.resume-summary {
+  padding-left: 1rem;
+}
+
+.resume-summary ul {
+  list-style-position: outside;
+  list-style-type: circle;
+  margin: 0.25rem 0 0;
+  padding-left: 1rem;
+}
+
+.resume-summary li {
+  margin-bottom: 0.2rem;
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.35in;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  body {
+    display: block !important;
+    height: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  main,
+  .resume,
+  .resume * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  .resume a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .resume {
+    max-width: none;
+    font-size: 8.5pt;
+    line-height: 1.18;
+  }
+
+  .resume .mb-10 {
+    margin-bottom: 0.3rem;
+  }
+
+  .resume .mb-10 span[style] {
+    font-size: 18pt !important;
+  }
+
+  .resume .text-2xl {
+    font-size: 12pt;
+    line-height: 1.05;
+  }
+
+  .resume .text-xl {
+    font-size: 9.5pt;
+    line-height: 1.1;
+  }
+
+  .resume hr {
+    margin: 0.08rem 0 0.2rem;
+  }
+
+  .resume-download {
+    display: none;
+  }
+
+  .resume-section {
+    margin-bottom: 0.35rem;
+    break-after: auto;
+    break-inside: auto;
+    page-break-after: auto;
+    page-break-inside: auto;
+  }
+
+  .resume-section > .text-2xl {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .resume-section-skills,
+  .resume-section-education,
+  .resume-section-languages {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .resume-entry {
+    margin-bottom: 0.25rem;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .resume-entry:not(.resume-entry-work) {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .resume-entry > .flex:first-child,
+  .resume-entry > .flex:first-child + .flex {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .resume-summary {
+    padding-left: 0.8rem;
+  }
+
+  .resume-summary ul {
+    margin-top: 0.05rem;
+    padding-left: 0.8rem;
+  }
+
+  .resume-summary li {
+    margin-bottom: 0;
+  }
 }
