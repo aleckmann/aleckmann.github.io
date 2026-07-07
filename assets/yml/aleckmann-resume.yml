@@ -1,4 +1,3 @@
-# https://yamlresume.dev/docs
 ---
 content:
   basics: 
@@ -140,12 +139,6 @@ content:
         - Unique behavior based on access package, department, employement type, and subsidiary
         - Built-in approval process for managers, application administrators, and security team depending on requested access
         - Every step of process is logged through ticketing system, sending email notifications to relevant parties
-    # - name: This Resume!
-    #   description: Created with YAML Resume, Latex, and Hugo
-    #   summary: |
-    #     - Defined in a standardized YAML format, generated as a PDF using yamlresume.dev
-    #     - Rendered online with a custom frontend built with Hugo and hosted using Github Pages
-
 layout:
   locale:
     language: en

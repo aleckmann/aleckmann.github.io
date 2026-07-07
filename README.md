@@ -67,7 +67,6 @@ The resume on this site uses one YAML data source and one Hugo rendering path. H
 
 - The resume data is stored in `assets/yml/aleckmann-resume.yml`
 - This YAML file contains structured data about work experience, education, skills, and other resume sections
-- An example template can be found at `assets/yml/exampleresume.yml`
 
 ### Local PDF Rendering
 
@@ -95,14 +94,10 @@ When changes are pushed to the main branch, the GitHub Actions workflow:
 - The resume data is also rendered in HTML format at the `/resume` route
 - The checked-in PDF under `content/resume/` is a fallback; CI overwrites the published PDF during deployment
 
-### Rendering Engine Decision Criteria
-
-YAML Resume remains a reasonable option if the goal is to keep PDF output delegated to an existing resume-specific renderer. It is less attractive when the website's HTML resume and downloadable PDF need to match exactly, because it creates a second rendering engine with separate styling constraints.
-
-The current Hugo/Playwright approach optimizes for:
+### Rendering Engine
 
 - one rendering engine for HTML and PDF
-- CSS customization without LaTeX or YAML Resume template constraints
+- CSS customization without separate PDF template constraints
 - deterministic local and CI rendering from the same built page
 - one pinned Node dev dependency
 

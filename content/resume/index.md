@@ -2,7 +2,6 @@
 title: 'Resume'
 layout: resume
 resumeTemplate: 'yml/aleckmann-resume.yml'
-#resumeTemplate: 'yml/exampleresume.yml'
 params:
   showDate: false
   showAuthor: false
