@@ -42,7 +42,6 @@ jobs:
       HUGO_VERSION: 0.148.0
       HUGO_ENVIRONMENT: production
       NODE_VERSION: 24
-      RESUME_PDF_SITE_DIR: ${{ runner.temp }}/resume_pdf_site
       TZ: America/Los_Angeles
       
     steps:
@@ -101,6 +100,8 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Build local resume render
+        env:
+          RESUME_PDF_SITE_DIR: ${{ runner.temp }}/resume_pdf_site
         run: |
           hugo \
             --gc \
@@ -110,6 +111,8 @@ jobs:
             --baseURL "http://127.0.0.1:4173/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Render resume PDF
+        env:
+          RESUME_PDF_SITE_DIR: ${{ runner.temp }}/resume_pdf_site
         run: |
           npm run resume:pdf -- \
             --site-dir "${RESUME_PDF_SITE_DIR}" \
