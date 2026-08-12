@@ -20,10 +20,25 @@ content:
       startDate: 2013-09-01
       endDate: 2017-05-01
   work:
+    - name: Hadrian
+      url:
+      startDate: 2026-01-01
+      endDate:
+      position: Information Security Engineer
+      summary: |
+        - Led an enterprise vulnerability and patch-management program spanning cloud, endpoints, Kubernetes, and factory OT networks; deployed Tenable scanner appliances as Terraform/Terragrunt-managed infrastructure and created a reusable per-factory onboarding module.
+        - Automated the creation of SaaS access requests and governance functions with reusable Terraform modules, standardizing RBAC, approval workflows, group assignments, lifecycle provisioning, and entitlement controls.
+        - Authored organization-wide Identity Security and Endpoint Security roadmaps aligned to CMMC Level 2, NIST 800-171, and NIST CSF, covering HRIS-driven lifecycle management, phishing-resistant MFA, privileged access, device posture, endpoint vulnerability management, and staged enforcement.
+        - Designed a hardware-attested device-trust architecture using PKI, TPM/Secure Enclave-bound certificates, and endpoint posture checks to enforce managed-device access controls.
+        - Designed and implemented an enterprise LLM gateway that routes AI developer tools through per-user short-lived credentials, model allowlists, rate limits, spend controls, and audit logging.
+        - Built AI-assisted operational skills for managing FleetDM and endpoint configuration, plus an automated software-packaging test suite covering installation UX, upgrade paths, and regression testing across managed platforms.
+        - Implemented CUI/ITAR data protection in Box using customer-managed AWS GovCloud KMS keys, least-privilege key policies, rotation and revocation procedures, and CloudTrail/Athena audit evidence.
+        - Automated CMMC Level 2 evidence collection and cross-functional control reviews through an agentic review lifecycle, producing consistent, traceable assessments aligned to the DoD CMMC assessment guide.
+
     - name: Azoff Music Company
       url:
       startDate: 2021-04-01
-      endDate:
+      endDate: 2026-01-01
       position: Information Security Specialist
       summary: |
         - Led the company's cybersecurity program, prioritizing improvements based on data-driven risk assessments, industry specific attack patterns, and the NIST Cybersecurity Framework. Reduced IT spending while improving overall security posture.
