@@ -106,10 +106,10 @@
             {{ if eq . "skills" }}
               <div>
                 {{ range index $contentroot . }}
-                  <div class="flex justify-between">
-                    <div class="flex content-start"><span><b>{{ .name }}:</b></span></div>
+                  <div class="resume-skill flex justify-between">
+                    <div class="resume-skill-name flex content-start"><span><b>{{ .name }}:</b></span></div>
                     {{ with .keywords }}
-                      <div>{{ delimit . ", " }}</div>
+                      <div class="resume-skill-keywords">{{ delimit . ", " }}</div>
                     {{ end }}
                   </div> 
                 {{ end }}
