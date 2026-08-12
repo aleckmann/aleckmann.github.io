@@ -31,6 +31,38 @@
   margin-bottom: 0.2rem;
 }
 
+@media screen {
+  .resume-skill {
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .resume-skill-name {
+    flex: 0 0 19rem;
+  }
+
+  .resume-skill-keywords {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .resume-skill {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .resume-skill-name {
+    margin-bottom: 0.1rem;
+  }
+
+  .resume-skill-keywords {
+    text-align: left;
+  }
+}
+
 @media print {
   @page {
     size: letter;
