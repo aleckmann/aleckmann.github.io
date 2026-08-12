@@ -82,56 +82,77 @@ content:
       fluency: Elementary Proficiency
 
   skills:
-    - name: Infrastructure as Code
-      level: Intermediate
+    - name: Infrastructure & Platform Security
+      level: Advanced
       keywords:
-        - Azure DevOps
-        - Bicep
+        - OpenTofu
         - Terraform
-        - Python
-        - PowerShell
-    - name: Endpoint Administration
-      level: Expert
+        - Terragrunt
+        - AWS GovCloud
+        - Kubernetes
+        - HashiCorp Vault
+        - env0
+    - name: Identity & SaaS Governance
+      level: Advanced
       keywords:
-        - Microsoft Entra ID
-        - Defender for Endpoint
+        - Okta
+        - SAML/OIDC
+        - SCIM
+        - RBAC
+        - Access Requests
+        - Lifecycle Management
+        - Privileged Access Management
+    - name: Endpoint Security & Management
+      level: Advanced
+      keywords:
+        - FleetDM
         - Intune
-        - Jamf
-    - name: IAM Administration
-      level: Expert
+        - Mosyle
+        - Defender for Endpoint
+        - Cortex XDR
+        - Device Trust
+        - PKI
+        - Software Packaging
+    - name: Security Compliance & Data Protection
+      level: Advanced
       keywords:
-        - SSO
-        - Conditional Access
-        - PAM
-        - Azure KeyVault
-        - 1Password
-    - name: Network Administration
-      level: Expert
+        - CMMC Level 2
+        - NIST 800-171
+        - NIST CSF
+        - CUI
+        - ITAR
+        - AWS KMS
+        - CloudTrail
+        - Tenable
+    - name: AI Platform Security & Automation
+      level: Advanced
       keywords:
+        - LLM Gateways
+        - MCP
+        - Bedrock
+        - Agentic Workflows
+        - Security Automation
+    - name: Network Security
+      level: Advanced
+      keywords:
+        - AWS VPC
         - DHCP
         - DNS
         - VLANs
         - RADIUS
-        - Meraki
-    - name: Cloud Networking
-      level: Intermediate
-      keywords:
-        - Azure VPN
-        - Azure Firewall
-        - Private Endpoints
-        - PLS
-        - AFD
-        - Azure Policy
-    - name: Email Security
-      level: Expert
-      keywords:
-        - Sendgrid
-        - SPF
-        - DKIM
-        - DMARC
-        - Defender for Office 365
+        - PAN-OS
 
   projects:
+    - name: LLM Gateway and AI Governance
+      description: Centralized AI Tooling Policy and Audit Controls
+      summary: |
+        - Designed a gateway that routes AI developer tools through per-user short-lived credentials with model allowlists, rate limits, spend controls, and audit logging.
+        - Built managed endpoint configuration and packaging workflows for AI developer tools across macOS and Windows.
+    - name: CMMC Evidence Automation
+      description: Agentic Control Evidence Collection and Review
+      summary: |
+        - Automated evidence collection and cross-functional control reviews through an agentic lifecycle aligned to the DoD CMMC Level 2 assessment guide.
+        - Produced traceable, consistent control assessments across infrastructure, IT, security, and application teams.
     - name: Infrastructure as Code Migration
       description: Bicep-based IaC Framework
       summary: |
