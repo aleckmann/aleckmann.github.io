@@ -30,7 +30,7 @@ content:
         - Automated the creation of SaaS access requests and governance functions with reusable Terraform modules, standardizing RBAC, approval workflows, group assignments, lifecycle provisioning, and entitlement controls.
         - Authored organization-wide Identity Security and Endpoint Security roadmaps aligned to CMMC Level 2, NIST 800-171, and NIST CSF, covering HRIS-driven lifecycle management, phishing-resistant MFA, privileged access, device posture, endpoint vulnerability management, and staged enforcement.
         - Designed a hardware-attested device-trust architecture using PKI, TPM/Secure Enclave-bound certificates, and endpoint posture checks to enforce managed-device access controls.
-        - Designed and implemented an enterprise LLM gateway that routes AI developer tools through per-user short-lived credentials, model allowlists, rate limits, spend controls, and audit logging.
+        - Designed a least-privilege authentication scheme and supporting software for an enterprise LLM gateway, issuing per-user short-lived credentials with model allowlists, rate limits, spend controls, and audit logging.
         - Built AI-assisted operational skills for managing FleetDM and endpoint configuration, plus an automated software-packaging test suite covering installation UX, upgrade paths, and regression testing across managed platforms.
         - Implemented CUI/ITAR data protection in Box using customer-managed AWS GovCloud KMS keys, least-privilege key policies, rotation and revocation procedures, and CloudTrail/Athena audit evidence.
         - Automated CMMC Level 2 evidence collection and cross-functional control reviews through an agentic review lifecycle, producing consistent, traceable assessments aligned to the DoD CMMC assessment guide.
@@ -143,10 +143,10 @@ content:
         - PAN-OS
 
   projects:
-    - name: LLM Gateway and AI Governance
-      description: Centralized AI Tooling Policy and Audit Controls
+    - name: LLM Gateway Authentication and AI Governance
+      description: Least-Privilege AI Tooling Authentication and Audit Controls
       summary: |
-        - Designed a gateway that routes AI developer tools through per-user short-lived credentials with model allowlists, rate limits, spend controls, and audit logging.
+        - Designed the least-privilege authentication scheme and supporting software that issues per-user short-lived gateway credentials with model allowlists, rate limits, spend controls, and audit logging.
         - Built managed endpoint configuration and packaging workflows for AI developer tools across macOS and Windows.
     - name: CMMC Evidence Automation
       description: Agentic Control Evidence Collection and Review
